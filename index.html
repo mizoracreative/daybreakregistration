@@ -120,6 +120,16 @@
 
 </div>
 
-<script> const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzCXLmULNKeFwjHRwnjKmHvs0M0runap2ue5hclnmQ8IFiMvK6_nuRb98zY-klcrFW4/exec"; const MAX_SLOT = 50; document .getElementById("registrationForm") .addEventListener("submit", async function(e){ e.preventDefault(); const formData = { nama: document.querySelector('[name="nama"]').value, email: document.querySelector('[name="email"]').value, whatsapp: document.querySelector('[name="whatsapp"]').value, tanggal_lahir: document.querySelector('[name="tanggal_lahir"]').value, gender: document.querySelector('[name="gender"]').value, kontak_darurat: document.querySelector('[name="kontak_darurat"]').value, nomor_darurat: document.querySelector('[name="nomor_darurat"]').value, catatan: document.querySelector('[name="catatan"]').value }; try{ const response = await fetch( GOOGLE_SCRIPT_URL, { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify(formData) } ); const result = await response.json(); const peserta = result.totalPeserta || 1; document.getElementById("quotaText") .innerText = peserta + "/" + MAX_SLOT; document.getElementById("remainingSlot") .innerText = MAX_SLOT - peserta; document.getElementById("progressFill") .style.width = ((peserta / MAX_SLOT) * 100) + "%"; document.querySelector(".container").innerHTML = ` <div class="success-box"> <h1>🎉</h1> <h2>Registration Complete</h2> <p> Terima kasih telah mendaftar DAY BREAK.<br> Informasi event akan dikirim melalui WhatsApp. </p> <div class="success-card"> <strong>DAY BREAK #${peserta}</strong> <br><br> 5K Fun Run with DJ Set Along The Run <br> Minggu, 5 Juli 2026 <br> Start 06.00 WIB <br> BICA Coffee & Eatery </div> </div> `; }catch(error){ alert( "Gagal mengirim data.\n\n" + "Pastikan URL Google Apps Script sudah benar." ); console.error(error); } }); </script>
+<script> const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzCXLmULNKeFwjHRwnjKmHvs0M0runap2ue5hclnmQ8IFiMvK6_nuRb98zY-klcrFW4/exec"; const MAX_SLOT = 50; document .getElementById("registrationForm") .addEventListener("submit", async function (e) { e.preventDefault(); const formData = { nama: document.querySelector('[name="nama"]').value, email: document.querySelector('[name="email"]').value, whatsapp: document.querySelector('[name="whatsapp"]').value, tanggal_lahir: document.querySelector('[name="tanggal_lahir"]').value, gender: document.querySelector('[name="gender"]').value, kontak_darurat: document.querySelector('[name="kontak_darurat"]').value, nomor_darurat: document.querySelector('[name="nomor_darurat"]').value, catatan: document.querySelector('[name="catatan"]').value }; try { const response = await fetch(
+  GOOGLE_SCRIPT_URL,
+  {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify(formData)
+  }
+); const text = await response.text(); console.log("Response:", text); alert( "Response:\n\n" + text ); } catch (error) { console.error("ERROR:", error); alert( "ERROR:\n\n" + error.toString() ); } }); </script>
 
 </body> </html>
