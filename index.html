@@ -1,135 +1,174 @@
 <!DOCTYPE html>
-
-<html lang="id"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>DAY BREAK Registration</title>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAY BREAK - Registration Closed</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<style> *{ margin:0; padding:0; box-sizing:border-box; } body{ background:#111; color:#fff; font-family:'Space Mono', monospace; min-height:100vh; display:flex; justify-content:center; align-items:center; padding:30px; } .container{ width:100%; max-width:700px; background:#1a1a1a; border:1px solid #333; padding:40px; border-radius:20px; } .logo{ text-align:center; margin-bottom:20px; } .logo h1{ font-size:64px; line-height:.9; margin-bottom:10px; } .logo p{ color:#bbb; font-size:14px; } .event-info{ text-align:center; margin-bottom:30px; } .event-info h2{ margin-bottom:10px; } .event-info p{ color:#ccc; line-height:1.8; } .quota-box{ margin-bottom:30px; } .quota-header{ display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px; } .progress-bar{ width:100%; height:12px; background:#2a2a2a; border-radius:999px; overflow:hidden; } .progress-fill{ width:2%; height:100%; background:white; transition:.4s ease; } .quota-note{ margin-top:8px; font-size:12px; color:#999; } .form-group{ margin-bottom:20px; } label{ display:block; margin-bottom:8px; font-size:14px; } input, select, textarea{ width:100%; padding:14px; border:none; border-radius:10px; background:#2a2a2a; color:white; font-family:'Space Mono', monospace; } input:focus, select:focus, textarea:focus{ outline:2px solid white; } .checkbox-label{ display:flex; align-items:flex-start; gap:10px; font-size:13px; color:#ccc; } .checkbox-label input{ width:auto; margin-top:3px; } .btn{ width:100%; padding:16px; background:white; color:black; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px; transition:.3s; } .btn:hover{ transform:translateY(-2px); } .footer{ margin-top:20px; text-align:center; color:#999; font-size:12px; } .success-box{ text-align:center; padding:40px 10px; } .success-box h1{ font-size:60px; margin-bottom:20px; } .success-box h2{ margin-bottom:15px; } .success-box p{ color:#bbb; line-height:1.8; margin-bottom:20px; } .success-card{ background:#222; border:1px solid #333; border-radius:12px; padding:20px; } </style>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
+body{
+    font-family:'Space Mono', monospace;
+    background:#111;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    overflow:hidden;
+    position:relative;
+}
+
+/* Background texture */
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.06),transparent 35%),
+    radial-gradient(circle at 80% 70%,rgba(255,255,255,.05),transparent 40%);
+    opacity:.5;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:700px;
+    text-align:center;
+    padding:40px 30px;
+    border:2px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(5px);
+}
+
+.logo{
+    font-size:18px;
+    letter-spacing:8px;
+    opacity:.8;
+    margin-bottom:15px;
+}
+
+.title{
+    font-size:58px;
+    font-weight:700;
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.stamp{
+    display:inline-block;
+    background:#d32020;
+    color:#fff;
+    padding:18px 35px;
+    font-size:34px;
+    font-weight:bold;
+    transform:rotate(-6deg);
+    margin:25px 0;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.message{
+    font-size:18px;
+    line-height:1.8;
+    color:#ddd;
+    max-width:550px;
+    margin:auto;
+}
+
+.highlight{
+    color:#fff;
+    font-weight:bold;
+}
+
+.footer{
+    margin-top:40px;
+    font-size:15px;
+    color:#aaa;
+    border-top:1px solid rgba(255,255,255,.15);
+    padding-top:20px;
+}
+
+button{
+    margin-top:35px;
+    padding:14px 35px;
+    border:1px solid #fff;
+    background:transparent;
+    color:#fff;
+    font-family:'Space Mono', monospace;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#fff;
+    color:#111;
+}
+
+@media(max-width:600px){
+
+.title{
+    font-size:42px;
+}
+
+.stamp{
+    font-size:24px;
+}
+
+.message{
+    font-size:16px;
+}
+
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="logo">
-    <h1>DAY<br>BREAK</h1>
-    <p>BICA Coffee & Eatery × Motion Sickness</p>
-</div>
-
-<div class="event-info">
-    <h2>5K Fun Run with DJ Set Along The Run</h2>
-    <p>
-        Minggu, 5 Juli 2026<br>
-        Start 06.00 WIB<br>
-        Start & Finish di BICA Coffee & Eatery<br>
-        Kuota Terbatas 50 Peserta
-    </p>
-</div>
-
-<!-- QUOTA -->
-
-<div class="quota-box">
-
-    <div class="quota-header">
-        <span>Participant Slots</span>
-        <span id="quotaText">1/50</span>
+    <div class="logo">
+        DAY BREAK
     </div>
 
-    <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
+    <h1 class="title">
+        REGISTRATION<br>CLOSED
+    </h1>
+
+    <div class="stamp">
+        SLOT FULL
     </div>
 
-    <p class="quota-note">
-        Remaining slots:
-        <span id="remainingSlot">49</span>
-    </p>
+    <div class="message">
+        Terima kasih atas antusiasme teman-teman untuk mengikuti
+        <span class="highlight">DAY BREAK 5K Fun Run.</span>
+        <br><br>
 
-</div>
+        Pendaftaran telah resmi <span class="highlight">DITUTUP</span>
+        karena kuota peserta sudah terpenuhi.
+        <br><br>
 
-<!-- FORM -->
-
-<form id="registrationForm">
-
-    <div class="form-group">
-        <label>Nama Lengkap</label>
-        <input type="text" name="nama" required>
+        Sampai jumpa di event DAY BREAK berikutnya.
+        Tetap pantau informasi terbaru melalui media sosial kami.
     </div>
 
-    <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-        <label>Nomor WhatsApp</label>
-        <input type="tel" name="whatsapp" required>
-    </div>
-
-    <div class="form-group">
-        <label>Tanggal Lahir</label>
-        <input type="date" name="tanggal_lahir" required>
-    </div>
-
-    <div class="form-group">
-        <label>Jenis Kelamin</label>
-        <select name="gender" required>
-            <option value="">Pilih</option>
-            <option>Pria</option>
-            <option>Wanita</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Nama Kontak Darurat</label>
-        <input type="text" name="kontak_darurat" required>
-    </div>
-
-    <div class="form-group">
-        <label>Nomor Kontak Darurat</label>
-        <input type="tel" name="nomor_darurat" required>
-    </div>
-
-    <div class="form-group">
-        <label>Catatan Kesehatan (Opsional)</label>
-        <textarea
-            rows="4"
-            name="catatan">
-        </textarea>
-    </div>
-
-    <div class="form-group">
-        <label class="checkbox-label">
-            <input type="checkbox" required>
-            <span>
-                Saya menyatakan dalam kondisi sehat
-                dan siap mengikuti DAY BREAK 5K Fun Run.
-            </span>
-        </label>
-    </div>
-
-    <button type="submit" class="btn">
-        DAFTAR SEKARANG
+    <button onclick="window.location.reload()">
+        SEE YOU NEXT RUN →
     </button>
 
-</form>
+    <div class="footer">
+        Thank you for your support.<br>
+        See you on the next DAY BREAK.
+    </div>
 
-<div class="footer">
-    Free Registration • Doorprize • Fun Run • DJ Set
 </div>
 
-</div>
-
-<script> const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzCXLmULNKeFwjHRwnjKmHvs0M0runap2ue5hclnmQ8IFiMvK6_nuRb98zY-klcrFW4/exec"; const MAX_SLOT = 50; document .getElementById("registrationForm") .addEventListener("submit", async function (e) { e.preventDefault(); const formData = { nama: document.querySelector('[name="nama"]').value, email: document.querySelector('[name="email"]').value, whatsapp: document.querySelector('[name="whatsapp"]').value, tanggal_lahir: document.querySelector('[name="tanggal_lahir"]').value, gender: document.querySelector('[name="gender"]').value, kontak_darurat: document.querySelector('[name="kontak_darurat"]').value, nomor_darurat: document.querySelector('[name="nomor_darurat"]').value, catatan: document.querySelector('[name="catatan"]').value }; try { const response = await fetch(
-  GOOGLE_SCRIPT_URL,
-  {
-    method: "POST",
-    mode: "cors",
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8"
-    },
-    body: JSON.stringify(formData)
-  }
-); const text = await response.text(); console.log("Response:", text); alert( "Response:\n\n" + text ); } catch (error) { console.error("ERROR:", error); alert( "ERROR:\n\n" + error.toString() ); } }); </script>
-
-</body> </html>
+</body>
+</html>
